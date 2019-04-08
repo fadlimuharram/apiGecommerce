@@ -21,7 +21,7 @@ Route.get("/", () => {
 });
 
 Route.group(() => {
-  Route.resource("products", "V1/ProductController");
+  Route.resource("products", "V1/ProductController").except(["edit", "create"]);
   Route.resource("categories", "V1/CategoryController").except([
     "edit",
     "create"

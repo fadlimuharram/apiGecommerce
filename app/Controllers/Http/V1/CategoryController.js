@@ -235,7 +235,7 @@ module.exports = CategoryController;
 
 /**
  * @swagger
- * /categories:
+ * /categories/{categoryId}:
  *    patch:
  *      tags:
  *        - Categories
@@ -243,6 +243,10 @@ module.exports = CategoryController;
  *      consumes:
  *        - multipart/form-data
  *      parameters:
+ *        - in: path
+ *          name: categoryId
+ *          type: integer
+ *          description: ID of category.
  *        - in: formData
  *          name: cover
  *          type: file
@@ -280,4 +284,3 @@ module.exports = CategoryController;
  *          description: successful operation
  *
  */
-// tes

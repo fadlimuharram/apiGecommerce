@@ -10,6 +10,7 @@ class ProductsSchema extends Schema {
       table.string("name", 50).notNullable();
       table.double("price").notNullable();
       table.text("description").notNullable();
+      table.integer("quantity").notNullable();
       table.integer("category_id").unsigned();
       table.timestamps();
     });

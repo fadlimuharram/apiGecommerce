@@ -51,7 +51,8 @@ class ProductController {
       name: "required|string",
       price: "required|number",
       description: "required",
-      category_id: "required"
+      category_id: "required",
+      quantity: "required"
     };
 
     const validation = await validate(request.all(), rules);
@@ -94,6 +95,7 @@ class ProductController {
     product.price = request.input("price");
     product.description = request.input("description");
     product.category_id = request.input("category_id");
+    product.quantity = request.input("quantity");
     await product.save();
 
     let dataPicture = [];
@@ -145,7 +147,8 @@ class ProductController {
       name: "string",
       price: "number",
       description: "string",
-      category_id: "number"
+      category_id: "number",
+      quantity: "number"
     };
 
     const validation = await validate(request.all(), rules);
@@ -159,6 +162,7 @@ class ProductController {
     const reqPrice = request.input("price");
     const reqDescription = request.input("description");
     const reqCategoryId = request.input("category_id");
+    const reqQuantity = request.input("quantity");
 
     const product = await Product.find(params.id);
     product.name = reqName !== "" ? reqName : product.name;
@@ -168,6 +172,7 @@ class ProductController {
     product.category_id =
       reqCategoryId !== "" ? reqCategoryId : product.category_id;
     product.save();
+    product.quantity !== "" ? reqQuantity : product.reqQuantity;
 
     return response.json({
       status: 1,

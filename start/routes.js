@@ -26,4 +26,11 @@ Route.group(() => {
     "edit",
     "create"
   ]);
-}).prefix("api/v1");
+})
+  .prefix("api/v1")
+  .middleware("auth");
+
+Route.group(() => {
+  Route.post("register", "V1/AuthController.register");
+  Route.post("login", "V1/AUthController.login");
+}).prefix("auth");

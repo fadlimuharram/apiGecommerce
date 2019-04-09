@@ -17,14 +17,15 @@ class CheckoutController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index({ request, response, view }) {
-    const ck = await Checkout.query()
+  async index({ request, response, view, auth }) {
+    const getUser = await auth.getUser();
+    const checkOut = await Checkout.query()
       .with("user")
       .with("product")
-      .where("user_id", 1)
+      .where("user_id", getUser.id)
       .fetch();
 
-    return response.json({ ck });
+    return response.json({ status: 1, data: checkOut });
   }
 
   /**

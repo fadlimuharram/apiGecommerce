@@ -21,14 +21,25 @@ Route.get("/", () => {
 });
 
 Route.group(() => {
-  Route.resource("products", "V1/ProductController").except(["edit", "create"]);
-  Route.resource("categories", "V1/CategoryController").except([
-    "edit",
-    "create"
-  ]);
-  Route.resource("checkout", "V1/CheckoutController");
+  Route.resource("products", "V1/ProductController")
+    .apiOnly()
+    .except(["index", "show"]);
+  Route.resource("categories", "V1/CategoryController")
+    .apiOnly()
+    .except(["index", "show"]);
+  Route.resource("checkout", "V1/CheckoutController").apiOnly();
+})
+  .prefix("api/v1")
+  .middleware("auth");
+
+Route.group(() => {
+  Route.resource("products", "V1/ProductController")
+    .apiOnly()
+    .except(["store", "update", "destroy"]);
+  Route.resource("categories", "V1/CategoryController")
+    .apiOnly()
+    .except(["store", "update", "destroy"]);
 }).prefix("api/v1");
-// .middleware("auth");
 
 Route.group(() => {
   Route.post("register", "V1/AuthController.register");
@@ -36,3 +47,13 @@ Route.group(() => {
 }).prefix("auth");
 
 // Route.resource("checkout", "V1/CheckoutController").prefix("api/v1");
+
+/**
+ * @swagger
+ * securityDefinitions:
+ *    api_key:
+ *        type: apiKey
+ *        name: Authorization
+ *        in: header
+ *
+ */

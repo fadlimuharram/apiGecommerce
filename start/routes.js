@@ -27,7 +27,7 @@ Route.group(() => {
   Route.resource("categories", "V1/CategoryController")
     .apiOnly()
     .except(["index", "show"]);
-  Route.resource("checkout", "V1/CheckoutController").apiOnly();
+  Route.resource("cards", "V1/CardController").apiOnly();
 })
   .prefix("api/v1")
   .middleware("auth");

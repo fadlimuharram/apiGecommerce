@@ -77,3 +77,70 @@ class AuthController {
 }
 
 module.exports = AuthController;
+
+/**
+ * @swagger
+ * /user/login:
+ *    post:
+ *      tags:
+ *        - User
+ *      summary: Login to get access token
+ *      consumes:
+ *        - multipart/form-data
+ *      parameters:
+ *          - in: query
+ *            name: email
+ *            schema:
+ *                type: string
+ *            required: true
+ *            description: set email
+ *          - in: query
+ *            name: password
+ *            schema:
+ *                type: string
+ *            required: true
+ *            description: set password
+ *      responses:
+ *        400:
+ *          description: failure operation
+ *        200:
+ *          description: successful operation
+ *
+ * /user/register:
+ *    post:
+ *      tags:
+ *        - User
+ *      summary:  Register to get access token
+ *      consumes:
+ *        - multipart/form-data
+ *      parameters:
+ *          - in: query
+ *            name: username
+ *            schema:
+ *                type: string
+ *            required: true
+ *            description: set username
+ *          - in: query
+ *            name: email
+ *            schema:
+ *                type: string
+ *            required: true
+ *            description: set email
+ *          - in: query
+ *            name: password
+ *            schema:
+ *                type: string
+ *            required: true
+ *            description: set password
+ *          - in: query
+ *            name: confirm_password
+ *            schema:
+ *                type: string
+ *            required: true
+ *            description: set confirm password
+ *      responses:
+ *        400:
+ *          description: failure operation
+ *        200:
+ *          description: successful operation
+ */

@@ -3,7 +3,7 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use("Model");
 
-class Card extends Model {
+class Cart extends Model {
   user() {
     return this.belongsTo("App/Models/User");
   }
@@ -12,4 +12,4 @@ class Card extends Model {
   }
 }
 
-module.exports = Card;
+module.exports = Cart;

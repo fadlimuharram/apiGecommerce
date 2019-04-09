@@ -3,11 +3,11 @@
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
-const Card = use("App/Models/Card");
+const Cart = use("App/Models/Cart");
 /**
  * Resourceful controller for interacting with cards
  */
-class CardController {
+class CartController {
   /**
    * Show a list of all cards.
    * GET cards
@@ -47,7 +47,31 @@ class CardController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response }) {}
+  async store({ request, response }) {
+    const getUser = await auth.getUser();
+
+    const rules = {
+      product_id: "required",
+      quantity: "required",
+      message: "string"
+    }
+
+
+    const product_id = request.input("product_id")
+    const user_id = getUser.id
+    const quantity = request.input("quantity")
+    const message = request.input("message")
+
+    // check if user already insert the same cart
+    const checkCart = await Card
+                        .query()
+                        .where('product_id', product_id)
+                        .where("user_id", user_id)
+                        .fetch();
+    if(checkCart.length === 0){
+      const Card
+    }
+  }
 
   /**
    * Display a single card.

@@ -14,7 +14,7 @@ const Category = use("App/Models/Category");
 const Product = use("App/Models/Product");
 const Picture = use("App/Models/Picture");
 const User = use("App/Models/User");
-const Card = use("App/Models/Card");
+const Cart = use("App/Models/Cart");
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use("Factory");
@@ -168,13 +168,13 @@ class DummySeeder {
     user.picture = "no_avatar.jpg";
     await user.save();
 
-    const usr1Card = new Card();
-    usr1Card.product_id = pro2.id;
-    usr1Card.user_id = user.id;
-    usr1Card.quantity = 2;
-    usr1Card.message =
+    const usr1Cart = new Cart();
+    usr1Cart.product_id = pro2.id;
+    usr1Cart.user_id = user.id;
+    usr1Cart.quantity = 2;
+    usr1Cart.message =
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, expedita?";
-    await usr1Card.save();
+    await usr1Cart.save();
   }
 }
 

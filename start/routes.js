@@ -39,12 +39,10 @@ Route.group(() => {
   Route.resource("categories", "V1/CategoryController")
     .apiOnly()
     .except(["store", "update", "destroy"]);
-}).prefix("api/v1");
 
-Route.group(() => {
-  Route.post("register", "V1/AuthController.register");
-  Route.post("login", "V1/AUthController.login");
-}).prefix("auth");
+  Route.post("users/register", "V1/AuthController.register");
+  Route.post("users/login", "V1/AUthController.login");
+}).prefix("api/v1");
 
 // Route.resource("checkout", "V1/CheckoutController").prefix("api/v1");
 

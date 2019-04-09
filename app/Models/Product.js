@@ -10,8 +10,8 @@ class Product extends Model {
   category() {
     return this.hasOne("App/Models/Category");
   }
-  card() {
-    return this.hasMany("App/Models/Card");
+  cart() {
+    return this.hasMany("App/Models/Cart");
   }
 }
 

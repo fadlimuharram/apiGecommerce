@@ -24,7 +24,9 @@ class ProductController {
       let pagination = request.only(["page", "limit"]);
       const page = parseInt(pagination.page, 10) || 1;
       const limit = parseInt(pagination.limit, 10) || 10;
-      const products = await Product.query().paginate(page, limit);
+      const products = await Product.query()
+        .with("pictures")
+        .paginate(page, limit);
       products.toJSON();
 
       return response.status(200).json({
@@ -124,10 +126,13 @@ class ProductController {
    * GET products/:id
    */
   async show({ params, request, response, view }) {
-    const product = await Product.find(params.id);
+    const product = await Product.query()
+      .with("pictures")
+      .where("id", params.id)
+      .fetch();
 
     return response.status(200).json({
-      data: product,
+      ...product,
       status: 1
     });
   }

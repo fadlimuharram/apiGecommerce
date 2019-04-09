@@ -54,8 +54,8 @@ class User extends Model {
     return this.hasMany("App/Models/Token");
   }
 
-  card() {
-    return this.hasMany("App/Models/Card");
+  cart() {
+    return this.hasMany("App/Models/Cart");
   }
 }
 

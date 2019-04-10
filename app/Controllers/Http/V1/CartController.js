@@ -4,6 +4,8 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 const Cart = use("App/Models/Cart");
+const { validate } = use("Validator");
+
 /**
  * Resourceful controller for interacting with cards
  */
@@ -47,7 +49,7 @@ class CartController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response }) {
+  async store({ request, auth, response }) {
     const getUser = await auth.getUser();
 
     const rules = {
@@ -56,18 +58,48 @@ class CartController {
       message: "string"
     };
 
+    const validation = await validate(request.all(), rules);
+    if (validation.fails()) {
+      return response
+        .status(400)
+        .json({ status: 0, message: validation.messages() });
+    }
+
     const product_id = request.input("product_id");
     const user_id = getUser.id;
     const quantity = request.input("quantity");
     const message = request.input("message");
 
     // check if user already insert the same cart
-    const checkCart = await Card.query()
+    const checkCart = await Cart.query()
       .where("product_id", product_id)
       .where("user_id", user_id)
       .fetch();
-    // if (checkCart.length === 0) {
-    // }
+
+    // return response.json({ tes: checkCart.rows.length });
+
+    if (checkCart.rows.length === 0) {
+      const cart = new Cart();
+      cart.product_id = product_id;
+      cart.user_id = user_id;
+      cart.quantity = quantity;
+      if (message) cart.message = message;
+      await cart.save();
+      return response.json({
+        status: 1,
+        condition: "added to new cart",
+        ...cart
+      });
+    } else {
+      const cart = await Cart.find(checkCart.rows[0].id);
+      cart.quantity = cart.quantity + quantity;
+      await cart.save();
+      return response.json({
+        status: 1,
+        condition: "added quantity",
+        data: cart
+      });
+    }
   }
 
   /**

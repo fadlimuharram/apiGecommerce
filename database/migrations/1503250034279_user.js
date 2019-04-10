@@ -17,6 +17,7 @@ class UserSchema extends Schema {
         .unique();
       table.string("password", 60).notNullable();
       table.string("picture");
+      table.enum("level", [1, 2]);
       table.timestamps();
     });
   }

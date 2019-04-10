@@ -34,9 +34,10 @@ class AuthController {
     user.email = email;
     user.password = password;
     user.picture = "no_avatar.jpg";
+    user.level = 2;
     await user.save();
 
-    let accessToken = await auth.generate(user);
+    let accessToken = await auth.withRefreshToken().generate(user);
     return response.json({
       user: user,
       access_token: accessToken
@@ -63,7 +64,7 @@ class AuthController {
     try {
       if (await auth.attempt(email, password)) {
         let user = await User.findBy("email", email);
-        let accessToken = await auth.generate(user);
+        let accessToken = await auth.withRefreshToken().generate(user);
 
         return response.json({ user: user, access_token: accessToken });
       }
@@ -73,6 +74,30 @@ class AuthController {
         message: "you first need to register"
       });
     }
+  }
+
+  async generateRefreshToken({ request, auth, response }) {
+    const rules = {
+      refresh_token: "required|string"
+    };
+
+    const validation = await validate(request.all(), rules);
+
+    if (validation.fails()) {
+      return response
+        .status(400)
+        .json({ status: 0, message: validation.messages() });
+    }
+
+    const refreshToken = request.input("refresh_token");
+    const access_token = await auth
+      .newRefreshToken()
+      .generateForRefreshToken(refreshToken);
+    return response.send({ status: 1, access_token });
+  }
+
+  async getProfile({ response, auth }) {
+    return response.send({ status: 1, user: auth.current.user });
   }
 }
 

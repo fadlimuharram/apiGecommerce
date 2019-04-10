@@ -19,13 +19,13 @@ class CartController {
    */
   async index({ request, response, view, auth }) {
     const getUser = await auth.getUser();
-    const card = await Card.query()
+    const cart = await Cart.query()
       .with("user")
       .with("product")
       .where("user_id", getUser.id)
       .fetch();
 
-    return response.json({ status: 1, data: card });
+    return response.json({ status: 1, data: cart });
   }
 
   /**
@@ -54,23 +54,20 @@ class CartController {
       product_id: "required",
       quantity: "required",
       message: "string"
-    }
+    };
 
-
-    const product_id = request.input("product_id")
-    const user_id = getUser.id
-    const quantity = request.input("quantity")
-    const message = request.input("message")
+    const product_id = request.input("product_id");
+    const user_id = getUser.id;
+    const quantity = request.input("quantity");
+    const message = request.input("message");
 
     // check if user already insert the same cart
-    const checkCart = await Card
-                        .query()
-                        .where('product_id', product_id)
-                        .where("user_id", user_id)
-                        .fetch();
-    if(checkCart.length === 0){
-      const Card
-    }
+    const checkCart = await Card.query()
+      .where("product_id", product_id)
+      .where("user_id", user_id)
+      .fetch();
+    // if (checkCart.length === 0) {
+    // }
   }
 
   /**
@@ -116,7 +113,7 @@ class CartController {
   async destroy({ params, request, response }) {}
 }
 
-module.exports = CardController;
+module.exports = CartController;
 
 /**
  * @swagger

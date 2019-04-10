@@ -166,6 +166,7 @@ class DummySeeder {
     user.email = "fadlimuharram@hotmail.com";
     user.password = "fadli123456";
     user.picture = "no_avatar.jpg";
+    user.level = 1;
     await user.save();
 
     const usr1Cart = new Cart();

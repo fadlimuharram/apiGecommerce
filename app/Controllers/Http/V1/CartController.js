@@ -24,6 +24,8 @@ class CartController {
     const cart = await Cart.query()
       .with("user")
       .with("product")
+      .with("product.category")
+      .with("product.pictures")
       .where("user_id", getUser.id)
       .fetch();
 
@@ -76,8 +78,6 @@ class CartController {
       .where("user_id", user_id)
       .fetch();
 
-    // return response.json({ tes: checkCart.rows.length });
-
     if (checkCart.rows.length === 0) {
       const cart = new Cart();
       cart.product_id = product_id;
@@ -88,7 +88,7 @@ class CartController {
       return response.json({
         status: 1,
         condition: "added to new cart",
-        ...cart
+        data: cart
       });
     } else {
       const cart = await Cart.find(checkCart.rows[0].id);
@@ -132,7 +132,34 @@ class CartController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update({ params, request, response }) {}
+  async update({ params, request, auth, response }) {
+    const rules = {
+      quantity: "required|number"
+    };
+
+    const validation = await validate(request.all(), rules);
+    if (validation.fails()) {
+      return response
+        .status(400)
+        .json({ status: 0, message: validation.messages() });
+    }
+
+    const cart = await Cart.find(params.id);
+    cart.quantity = request.input("quantity");
+    await cart.save();
+
+    const getUser = await auth.getUser();
+    const cartReturn = await Cart.query()
+      .where("id", cart.id)
+      .with("user")
+      .with("product")
+      .with("product.category")
+      .with("product.pictures")
+      .where("user_id", getUser.id)
+      .fetch();
+
+    return response.json({ status: 1, data: cartReturn.rows[0] });
+  }
 
   /**
    * Delete a card with id.
@@ -142,7 +169,17 @@ class CartController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy({ params, request, response }) {}
+  async destroy({ params, request, response }) {
+    const cart = await Cart.find(params.id);
+    const oldCart = cart;
+    if (!cart) return response.status(404).json({ status: 0 });
+
+    await cart.delete();
+    return response.status(200).json({
+      status: 1,
+      data: oldCart
+    });
+  }
 }
 
 module.exports = CartController;

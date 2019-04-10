@@ -8,7 +8,7 @@ class Product extends Model {
     return this.hasMany("App/Models/Picture");
   }
   category() {
-    return this.hasOne("App/Models/Category");
+    return this.belongsTo("App/Models/Category");
   }
   cart() {
     return this.hasMany("App/Models/Cart");

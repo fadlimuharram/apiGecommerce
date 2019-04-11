@@ -100,7 +100,7 @@ class CartController {
     } else {
       const cart = await Cart.find(checkCart.rows[0].id);
       cart.quantity = cart.quantity + quantity;
-      cart.price = dataProduct.price * quantity;
+      cart.price = dataProduct.price * cart.quantity;
       await cart.save();
       return response.json({
         status: 1,
@@ -153,7 +153,10 @@ class CartController {
     }
 
     const cart = await Cart.find(params.id);
+    const dataProduct = await Product.find(cart.product_id);
+
     cart.quantity = request.input("quantity");
+    cart.price = dataProduct.price * cart.quantity;
     await cart.save();
 
     const getUser = await auth.getUser();
@@ -166,7 +169,15 @@ class CartController {
       .where("user_id", getUser.id)
       .fetch();
 
-    return response.json({ status: 1, data: cartReturn.rows[0] });
+    const totalCart = await Cart.query()
+      .where("user_id", getUser.id)
+      .sum("price as total");
+
+    return response.json({
+      status: 1,
+      data: cartReturn.rows[0],
+      total: totalCart[0].total
+    });
   }
 
   /**

@@ -7,6 +7,7 @@ class CardSchema extends Schema {
   up() {
     this.create("carts", table => {
       table.increments();
+      table.double("price");
       table
         .integer("product_id")
         .unsigned()

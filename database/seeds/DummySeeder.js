@@ -173,6 +173,7 @@ class DummySeeder {
     usr1Cart.product_id = pro2.id;
     usr1Cart.user_id = user.id;
     usr1Cart.quantity = 2;
+    usr1Cart.price = usr1Cart.quantity * pro2.price;
     usr1Cart.message =
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, expedita?";
     await usr1Cart.save();

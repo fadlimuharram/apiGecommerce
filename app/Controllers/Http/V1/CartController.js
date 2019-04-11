@@ -4,6 +4,7 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 const Cart = use("App/Models/Cart");
+const Product = use("App/Models/Product");
 const { validate } = use("Validator");
 
 /**
@@ -29,7 +30,11 @@ class CartController {
       .where("user_id", getUser.id)
       .fetch();
 
-    return response.json({ status: 1, data: cart });
+    const totalCart = await Cart.query()
+      .where("user_id", getUser.id)
+      .sum("price as total");
+
+    return response.json({ status: 1, data: cart, total: totalCart[0].total });
   }
 
   /**
@@ -77,12 +82,14 @@ class CartController {
       .where("product_id", product_id)
       .where("user_id", user_id)
       .fetch();
-
+    const dataProduct = await Product.find(product_id);
     if (checkCart.rows.length === 0) {
       const cart = new Cart();
       cart.product_id = product_id;
       cart.user_id = user_id;
       cart.quantity = quantity;
+      cart.price = dataProduct.price * quantity;
+
       if (message) cart.message = message;
       await cart.save();
       return response.json({
@@ -93,6 +100,7 @@ class CartController {
     } else {
       const cart = await Cart.find(checkCart.rows[0].id);
       cart.quantity = cart.quantity + quantity;
+      cart.price = dataProduct.price * quantity;
       await cart.save();
       return response.json({
         status: 1,

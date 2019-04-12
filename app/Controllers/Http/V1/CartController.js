@@ -194,9 +194,15 @@ class CartController {
     if (!cart) return response.status(404).json({ status: 0 });
 
     await cart.delete();
+
+    const totalCart = await Cart.query()
+      .where("user_id", getUser.id)
+      .sum("price as total");
+
     return response.status(200).json({
       status: 1,
-      data: oldCart
+      data: oldCart,
+      total: totalCart[0].total
     });
   }
 }

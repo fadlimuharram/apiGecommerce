@@ -15,6 +15,7 @@ const Product = use("App/Models/Product");
 const Picture = use("App/Models/Picture");
 const User = use("App/Models/User");
 const Cart = use("App/Models/Cart");
+const Address = use("App/Models/Address");
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use("Factory");
@@ -177,6 +178,32 @@ class DummySeeder {
     usr1Cart.message =
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, expedita?";
     await usr1Cart.save();
+
+    const add1 = new Address();
+    add1.title = "rumah";
+    add1.address = "jl bla bla";
+    add1.province = "DKI Jakarta";
+    add1.province_id = "6";
+    add1.city = "Jakarta Barat";
+    add1.city_id = "151";
+    add1.postal = "11220";
+    add1.receiver = "azure";
+    add1.phone = "08229989189231";
+    add1.user_id = user.id;
+    await add1.save();
+
+    const add2 = new Address();
+    add2.title = "kantor";
+    add2.address = "jl kantor bla bla";
+    add2.province = "DKI Jakarta";
+    add2.province_id = "6";
+    add2.city = "Jakarta Pusat";
+    add2.city_id = "152";
+    add2.postal = "10540";
+    add2.receiver = "fadli aja";
+    add2.phone = "08229989189232";
+    add2.user_id = user.id;
+    await add2.save();
   }
 }
 

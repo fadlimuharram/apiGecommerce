@@ -20,7 +20,15 @@ class AddressController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index({ request, response, view }) {}
+  async index({ request, auth, response, view }) {
+    const getUser = await auth.getUser();
+
+    const address = await Address.query()
+      .where("user_id", getUser.id)
+      .fetch();
+
+    return response.json({ status: 1, data: address });
+  }
 
   /**
    * Render a form to be used for creating a new address.

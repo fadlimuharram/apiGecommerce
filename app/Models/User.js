@@ -57,6 +57,9 @@ class User extends Model {
   cart() {
     return this.hasMany("App/Models/Cart");
   }
+  address() {
+    return this.hasMany("App/Models/Address");
+  }
 }
 
 module.exports = User;

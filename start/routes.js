@@ -28,6 +28,7 @@ Route.group(() => {
     .apiOnly()
     .except(["index", "show"]);
   Route.resource("carts", "V1/CartController").apiOnly();
+  Route.resource("addresses", "V1/AddressController").apiOnly();
   Route.get("users/data", "V1/AuthCOntroller.getProfile");
   Route.get("province", "V1/ThirdpartyApiController.getProvince");
   Route.get("city/:id", "V1/ThirdpartyApiController.getCity");
@@ -40,6 +41,7 @@ Route.group(() => {
     .apiOnly()
     .except(["store", "update", "destroy"]);
   Route.get("products/category/:id", "V1/ProductController.getByCategory");
+  Route.post("products/search", "V1/ProductController.getBySearch");
   Route.resource("categories", "V1/CategoryController")
     .apiOnly()
     .except(["store", "update", "destroy"]);

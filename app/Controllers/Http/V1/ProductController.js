@@ -62,6 +62,31 @@ class ProductController {
   }
 
   /**
+   * Show a list of all products.
+   * GET products by search
+   */
+  async getBySearch({ request, response, params }) {
+    try {
+      let pagination = request.only(["page", "limit"]);
+      const page = parseInt(pagination.page, 10) || 1;
+      const limit = parseInt(pagination.limit, 10) || 10;
+      const search = request.input("search");
+
+      const products = await Product.query()
+        .whereRaw(`name LIKE '%${search}%'`)
+        .with("pictures")
+        .paginate(page, limit);
+
+      return response.status(200).json({
+        ...products,
+        status: 1
+      });
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
    * Render a form to be used for creating a new product.
    * GET products/create
    */

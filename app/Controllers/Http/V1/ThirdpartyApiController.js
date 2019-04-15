@@ -33,6 +33,10 @@ class ThirdpartyApiController {
         console.log("err", e);
       });
   }
+
+  // async getPrice({ response, params }){
+
+  // }
 }
 
 module.exports = ThirdpartyApiController;

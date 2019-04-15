@@ -29,9 +29,10 @@ Route.group(() => {
     .except(["index", "show"]);
   Route.resource("carts", "V1/CartController").apiOnly();
   Route.resource("addresses", "V1/AddressController").apiOnly();
-  Route.get("users/data", "V1/AuthCOntroller.getProfile");
+  Route.get("users/data", "V1/AuthController.getProfile");
   Route.get("province", "V1/ThirdpartyApiController.getProvince");
   Route.get("city/:id", "V1/ThirdpartyApiController.getCity");
+  Route.patch("users", "V1/AuthController.editProfile");
 })
   .prefix("api/v1")
   .middleware(["auth", "isAdmin"]);

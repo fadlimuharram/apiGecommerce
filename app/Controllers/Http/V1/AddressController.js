@@ -50,7 +50,7 @@ class AddressController {
    * @param {Response} ctx.response
    */
   async store({ request, response, auth }) {
-    const rule = {
+    const rules = {
       title: "required|string",
       address: "required",
       province: "required",
@@ -61,6 +61,8 @@ class AddressController {
       receiver: "required",
       phone: "required"
     };
+
+    const validation = await validate(request.all(), rules);
 
     if (validation.fails()) {
       return response
@@ -73,6 +75,7 @@ class AddressController {
     const address = new Address();
     address.user_id = user.id;
     address.title = request.input("title");
+    address.address = request.input("address");
     address.province = request.input("province");
     address.province_id = request.input("province_id");
     address.city = request.input("city");

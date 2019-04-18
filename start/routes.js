@@ -33,6 +33,7 @@ Route.group(() => {
   Route.get("province", "V1/ThirdpartyApiController.getProvince");
   Route.get("city/:id", "V1/ThirdpartyApiController.getCity");
   Route.patch("users", "V1/AuthController.editProfile");
+  Route.post("cost", "V1/ThirdpartyApiController.getPrice");
 })
   .prefix("api/v1")
   .middleware(["auth", "isAdmin"]);

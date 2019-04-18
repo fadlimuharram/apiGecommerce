@@ -34,9 +34,23 @@ class ThirdpartyApiController {
       });
   }
 
-  // async getPrice({ response, params }){
-
-  // }
+  async getPrice({ response, params, request }) {
+    const req = {
+      ...request.all(),
+      origin: "457"
+    };
+    return axios
+      .post(Env.get("RAJAONGKIR_URL") + "cost", req, {
+        headers: {
+          key: Env.get("RAJAONGKIR_API_KEY")
+        }
+      })
+      .then(res => {
+        return response.json({
+          data: res.data
+        });
+      });
+  }
 }
 
 module.exports = ThirdpartyApiController;

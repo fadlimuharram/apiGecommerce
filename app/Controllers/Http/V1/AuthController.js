@@ -35,7 +35,7 @@ class AuthController {
     user.email = email;
     user.password = password;
     user.picture = "no_avatar.jpg";
-    user.level = 2;
+    user.level = 1; // ubah ke 2 untuk user biasa
     await user.save();
 
     let accessToken = await auth.withRefreshToken().generate(user);

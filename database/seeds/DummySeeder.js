@@ -42,6 +42,26 @@ class DummySeeder {
     cat4.cover = "buah01.jpg";
     await cat4.save();
 
+    const cat5 = new Category();
+    cat5.name = "Biji Tanaman";
+    cat5.cover = "biji001.jpg";
+    await cat5.save();
+
+    const cat6 = new Category();
+    cat6.name = "Tanaman Kopi";
+    cat6.cover = "coffe001.jpg";
+    await cat6.save();
+
+    const cat7 = new Category();
+    cat7.name = "Pupuk Tanaman";
+    cat7.cover = "pupuk001.jpg";
+    await cat7.save();
+
+    const cat8 = new Category();
+    cat8.name = "Peralatan Tanaman";
+    cat8.cover = "alat001.jpg";
+    await cat8.save();
+
     const pro1 = new Product();
     pro1.name = "Kamboja Jepang Kecil";
     pro1.price = 20000;
@@ -49,6 +69,7 @@ class DummySeeder {
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus dignissimos rerum vitae, similique praesentium maxime vero non accusamus explicabo nesciunt blanditiis aperiam minus asperiores ipsa commodi ipsam! Corrupti, deserunt. Non inventore, vero minima vel unde quod corporis possimus iste sunt laborum assumenda voluptatum incidunt, voluptate eius perspiciatis nesciunt ex et suscipit impedit? Quo deleniti necessitatibus, dolore incidunt sapiente aperiam unde minima eligendi, non voluptatibus iusto quam? Commodi animi temporibus dolor cum impedit, itaque sapiente possimus ullam saepe omnis dolores deserunt aperiam vel facilis atque doloremque hic nisi sed excepturi perspiciatis eius eos. Nisi, aspernatur reiciendis perspiciatis eligendi facere natus?";
     pro1.category_id = 2;
     pro1.quantity = 10;
+    pro1.weight = 1700;
     await pro1.save();
 
     const pro2 = new Product();
@@ -58,6 +79,7 @@ class DummySeeder {
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quis natus voluptatem totam provident harum nobis culpa asperiores molestias quidem? Quisquam voluptatem ipsum odit delectus sapiente officia dolore quia provident cum, itaque vel libero porro rerum! Et, ullam reiciendis assumenda nemo eligendi vero, sed consectetur sapiente ut blanditiis distinctio, nesciunt vel hic quos? Id accusamus eius natus enim fugiat aut eligendi nulla doloribus fugit officiis! Quibusdam, inventore libero obcaecati cupiditate dolore quisquam iste quas quaerat vel dicta unde qui asperiores. Eveniet exercitationem eos officia quasi neque delectus recusandae quam! Inventore laudantium unde culpa facilis beatae aliquid harum doloribus nam corporis?";
     pro2.category_id = 2;
     pro2.quantity = 10;
+    pro2.weight = 2000;
     await pro2.save();
 
     const pro3 = new Product();
@@ -67,6 +89,7 @@ class DummySeeder {
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero fugit voluptatem quibusdam iste obcaecati deleniti id, quas eveniet optio sapiente animi expedita praesentium voluptates laborum! Delectus quis repudiandae corporis fugiat quae incidunt adipisci? Quas, nostrum possimus aliquam ex alias non voluptatem, aperiam porro rerum illo quo ut at officia quibusdam labore eos dolorum voluptatibus sunt est voluptatum vel veniam! Quas nam porro veritatis tempora, molestiae in pariatur harum veniam accusamus vitae quisquam dolorum sequi magnam magni facilis officiis! Sunt eveniet accusantium atque praesentium necessitatibus quidem fugiat eaque incidunt. Laudantium fugit optio voluptatum sed deserunt minima assumenda sequi, ullam officia dolorum?";
     pro3.category_id = 1;
     pro3.quantity = 10;
+    pro3.weight = 500;
     await pro3.save();
 
     const pro4 = new Product();
@@ -76,6 +99,7 @@ class DummySeeder {
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quisquam veniam consequatur, asperiores possimus, voluptatum suscipit inventore fugiat odio corporis vitae, eveniet aut. Perferendis fuga commodi ullam veniam quidem quibusdam porro sit voluptatem, culpa magnam aliquid quisquam debitis minima aliquam adipisci beatae quos nesciunt natus labore, recusandae impedit est voluptatum molestias? Quo omnis nihil vitae facilis expedita, iure autem tempore aut neque perferendis dignissimos repudiandae blanditiis quas, architecto, atque nostrum asperiores aliquid. Accusantium officiis fuga, adipisci suscipit voluptate harum eligendi ducimus explicabo eius tempore commodi deleniti error fugiat necessitatibus corrupti ab reprehenderit atque possimus quis iste nemo sit est provident.";
     pro4.category_id = 4;
     pro4.quantity = 10;
+    pro4.weight = 700;
     await pro4.save();
 
     const pro5 = new Product();
@@ -85,6 +109,7 @@ class DummySeeder {
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sequi commodi vel assumenda sed fugiat similique repudiandae expedita voluptatem exercitationem incidunt vitae eius iure obcaecati, eos hic ullam illo possimus. Nesciunt eum nostrum cum, consectetur voluptatum minus! Ipsam necessitatibus, nulla aperiam cumque id, porro praesentium, placeat consequatur eum quam corrupti perferendis iure. Impedit, reiciendis natus numquam, omnis vero doloribus fugit sed beatae iure voluptates ea deleniti ipsam! Molestiae accusantium cupiditate harum aliquam quidem nam ea delectus aspernatur magni. Maiores molestias suscipit et dolorum provident sed itaque, maxime corporis doloremque facilis tempora ex amet similique excepturi officia tenetur, doloribus officiis vel?";
     pro5.category_id = 2;
     pro5.quantity = 10;
+    pro5.weight = 1200;
     await pro5.save();
 
     const pic1 = new Picture();

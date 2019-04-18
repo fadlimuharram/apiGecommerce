@@ -100,7 +100,14 @@ class AddressController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show({ params, request, response, view }) {}
+  async show({ params, request, response, view }) {
+    const address = await Address.find(params.id);
+
+    return response.status(200).json({
+      status: 1,
+      data: address
+    });
+  }
 
   /**
    * Render a form to update an existing address.

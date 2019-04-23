@@ -153,6 +153,11 @@ class CartController {
     }
 
     const cart = await Cart.find(params.id);
+    if (!cart)
+      return response.status(404).json({
+        status: 0,
+        message: "not found"
+      });
     const dataProduct = await Product.find(cart.product_id);
 
     cart.quantity = request.input("quantity");
@@ -188,12 +193,13 @@ class CartController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy({ params, request, response }) {
+  async destroy({ params, request, auth, response }) {
     const cart = await Cart.find(params.id);
     const oldCart = cart;
     if (!cart) return response.status(404).json({ status: 0 });
 
     await cart.delete();
+    const getUser = await auth.getUser();
 
     const totalCart = await Cart.query()
       .where("user_id", getUser.id)

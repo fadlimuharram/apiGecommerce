@@ -66,7 +66,7 @@ class DummySeeder {
     pro1.name = "Kamboja Jepang Kecil";
     pro1.price = 20000;
     pro1.description =
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus dignissimos rerum vitae, similique praesentium maxime vero non accusamus explicabo nesciunt blanditiis aperiam minus asperiores ipsa commodi ipsam! Corrupti, deserunt. Non inventore, vero minima vel unde quod corporis possimus iste sunt laborum assumenda voluptatum incidunt, voluptate eius perspiciatis nesciunt ex et suscipit impedit? Quo deleniti necessitatibus, dolore incidunt sapiente aperiam unde minima eligendi, non voluptatibus iusto quam? Commodi animi temporibus dolor cum impedit, itaque sapiente possimus ullam saepe omnis dolores deserunt aperiam vel facilis atque doloremque hic nisi sed excepturi perspiciatis eius eos. Nisi, aspernatur reiciendis perspiciatis eligendi facere natus?";
+      "Adenium atau Kamboja Jepang (nama kamboja jepang sendiri sebenarnya menyesatkan karena dapat diidentikkan dengan kamboja, yang banyak ditemui di areal pemakaman. Sedangkan embel-embel kata jepang seakan-akan bunga ini berasal dari Jepang, padahal Adenium berasal dari Asia Barat dan Afrika) berasal dari daerah gurun pasir yang kering, dari daratan Asia Barat sampai Afrika. Sebutan di sana adalah Mawar Padang Pasir (desert rose). Karena berasal dari daerah kering, tanaman ini tumbuh lebih baik pada kondisi media yang kering dibanding terlalu basah. Disebut sebagai adenium karena salah satu tempat asal adenium adalah daerah Aden (Ibukota Yaman).";
     pro1.category_id = 2;
     pro1.quantity = 10;
     pro1.weight = 1700;
@@ -76,7 +76,7 @@ class DummySeeder {
     pro2.name = "Kamboja Jepang Besar";
     pro2.price = 100000;
     pro2.description =
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus quis natus voluptatem totam provident harum nobis culpa asperiores molestias quidem? Quisquam voluptatem ipsum odit delectus sapiente officia dolore quia provident cum, itaque vel libero porro rerum! Et, ullam reiciendis assumenda nemo eligendi vero, sed consectetur sapiente ut blanditiis distinctio, nesciunt vel hic quos? Id accusamus eius natus enim fugiat aut eligendi nulla doloribus fugit officiis! Quibusdam, inventore libero obcaecati cupiditate dolore quisquam iste quas quaerat vel dicta unde qui asperiores. Eveniet exercitationem eos officia quasi neque delectus recusandae quam! Inventore laudantium unde culpa facilis beatae aliquid harum doloribus nam corporis?";
+      "Bunga Kamboja dan Adenium (Kamboja Jepang) adalah dua jenis bunga yang berbeda, meskipun masih berkerabat, yakni sama-sama famili Apocynaceae. Banyak yang tidak menyadari perbedaan Adenium dan Kamboja, bahkan menganggap antara keduanya sebagai jenis bunga yang sama. Kamboja sebagai bunga yang normal dan Kamboja Jepang (Adenium) sebagai versi Kamboja berukuran mini atau bonsai. Padahal perbedaan antara keduanya bisa langsung dilihat dari genusnya yang berbeda, dimana Kamboja Jepang dari genus Adenium sedangkan Kamboja dari genus Plumeria.";
     pro2.category_id = 2;
     pro2.quantity = 10;
     pro2.weight = 2000;
@@ -86,7 +86,7 @@ class DummySeeder {
     pro3.name = "Rumput Laut";
     pro3.price = 30000;
     pro3.description =
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero fugit voluptatem quibusdam iste obcaecati deleniti id, quas eveniet optio sapiente animi expedita praesentium voluptates laborum! Delectus quis repudiandae corporis fugiat quae incidunt adipisci? Quas, nostrum possimus aliquam ex alias non voluptatem, aperiam porro rerum illo quo ut at officia quibusdam labore eos dolorum voluptatibus sunt est voluptatum vel veniam! Quas nam porro veritatis tempora, molestiae in pariatur harum veniam accusamus vitae quisquam dolorum sequi magnam magni facilis officiis! Sunt eveniet accusantium atque praesentium necessitatibus quidem fugiat eaque incidunt. Laudantium fugit optio voluptatum sed deserunt minima assumenda sequi, ullam officia dolorum?";
+      "Gulma laut, ganggang laut[1], atau rumput laut merupakan salah satu sumber daya hayati yang terdapat di wilayah pesisir dan laut.";
     pro3.category_id = 1;
     pro3.quantity = 10;
     pro3.weight = 500;
@@ -96,7 +96,7 @@ class DummySeeder {
     pro4.name = "Pohon Jeruk Imlek";
     pro4.price = 50000;
     pro4.description =
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quisquam veniam consequatur, asperiores possimus, voluptatum suscipit inventore fugiat odio corporis vitae, eveniet aut. Perferendis fuga commodi ullam veniam quidem quibusdam porro sit voluptatem, culpa magnam aliquid quisquam debitis minima aliquam adipisci beatae quos nesciunt natus labore, recusandae impedit est voluptatum molestias? Quo omnis nihil vitae facilis expedita, iure autem tempore aut neque perferendis dignissimos repudiandae blanditiis quas, architecto, atque nostrum asperiores aliquid. Accusantium officiis fuga, adipisci suscipit voluptate harum eligendi ducimus explicabo eius tempore commodi deleniti error fugiat necessitatibus corrupti ab reprehenderit atque possimus quis iste nemo sit est provident.";
+      "Rangkaian pohon buah jeruk ini pas utk menyemarakkan acara imlek, utk dekorasi meja atau kantor. Juga bagus sbg kado utk relasi dan keluarga anda.. Pohon Jeruk Imlek yang di percaya merupakan Pohon Membawa Keselamatan dan membawa Kemudahan dalam Hidup. itulah kenapa Sering kali waktu imlek di suruh bawa dua buah Jeruk Mandarin ke rumah Saudara sebagai oleh oleh, ";
     pro4.category_id = 4;
     pro4.quantity = 10;
     pro4.weight = 700;
@@ -106,7 +106,7 @@ class DummySeeder {
     pro5.name = "Dendrobium Kecil";
     pro5.price = 35000;
     pro5.description =
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sequi commodi vel assumenda sed fugiat similique repudiandae expedita voluptatem exercitationem incidunt vitae eius iure obcaecati, eos hic ullam illo possimus. Nesciunt eum nostrum cum, consectetur voluptatum minus! Ipsam necessitatibus, nulla aperiam cumque id, porro praesentium, placeat consequatur eum quam corrupti perferendis iure. Impedit, reiciendis natus numquam, omnis vero doloribus fugit sed beatae iure voluptates ea deleniti ipsam! Molestiae accusantium cupiditate harum aliquam quidem nam ea delectus aspernatur magni. Maiores molestias suscipit et dolorum provident sed itaque, maxime corporis doloremque facilis tempora ex amet similique excepturi officia tenetur, doloribus officiis vel?";
+      "Beli 1Kg Bisa Muat 4 Pot Beli 6Kg Dapat FREE ONGKIR = 1Kg dari Penjual + 2 Pot FREE Ke Seluruh Indonesia Beli 15 Pot Gratis = 1 Pot Penjual Callista Orchid &amp;amp; Supplies: Menyediakan berbagai jenis kebutuhan anggrek &amp;amp; tanaman hias lain nya, Siapa cepat Dapat yang sudah knob bunga/Spike/SESUAI STOK YANG ADA DI KEBUN ";
     pro5.category_id = 2;
     pro5.quantity = 10;
     pro5.weight = 1200;

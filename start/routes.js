@@ -34,6 +34,11 @@ Route.group(() => {
   Route.get("city/:id", "V1/ThirdpartyApiController.getCity");
   Route.patch("users", "V1/AuthController.editProfile");
   Route.post("cost", "V1/ThirdpartyApiController.getPrice");
+  Route.post("transactions", "V1/TransactionController.store");
+  Route.post(
+    "transactions/:id/product",
+    "V1/TransactionProductController.store"
+  );
 })
   .prefix("api/v1")
   .middleware(["auth", "isAdmin"]);
